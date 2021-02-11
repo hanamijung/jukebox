@@ -22,10 +22,6 @@ export class AboutCommand extends BaseCommand {
 Cached users count  :: ${await this.client.getUsersCount()}
 Channels count      :: ${await this.client.getChannelsCount()}
 Guilds count        :: ${await this.client.getGuildsCount()}
-Shards count        :: ${this.client.shard ? `${this.client.shard.count}` : "N/A"}
-Shard ID            :: ${this.client.shard ? `${this.client.shard.ids[0]}` : "N/A"}
-Playing Music on    :: ${await this.client.getTotalPlaying()} guilds
-YT Data Strategy    :: ${await this.client.config.YouTubeDataRetrievingStrategy === "api" ? "REST API" : "HTML SCRAPING"}
 
 Platform            :: ${process.platform}
 Arch                :: ${process.arch}
@@ -39,9 +35,6 @@ Discord.js version  :: v${version}
 FFmpeg version      :: v${(await import(this.getPackageJSON("ffmpeg-static")))["ffmpeg-static"]["binary-release-name"]}
 YTDL-Core version   :: v${(await import(this.getPackageJSON("ytdl-core"))).version}
 Opus Encoder        :: ${opusEncoderName} v${(await import(this.getPackageJSON(opusEncoderName))).version}
-Bot Version         :: v${(await import(path.resolve(process.cwd(), "package.json"))).version}
-
-Source code         :: https://sh.hzmi.xyz/jukebox
 \`\`\`
         `)
                 .setAuthor(`${this.client.user?.username as string} - Just a simple Discord music bot.`)
